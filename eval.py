@@ -97,6 +97,7 @@ def predict_label(image):
     img_rows, img_cols, color_channels = 64, 64, 1
     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     image = image.reshape(1, img_rows, img_cols, color_channels)
+    image = image.astype('float16')
 
     prediction_int = []
     prediction = model.predict(image)
